@@ -66,6 +66,10 @@ jobs:
               console.log(`Tag build; all images will be rebuilt.`);
               rebuildAll = true;
             }
+            else if (github.event_name === "workflow_dispatch") {
+              console.log(`Workflow triggered by workflow_dispatch; all images will be rebuilt`);
+              rebuildAll = true;
+            }
             else if (dirsChanged[BASE]) {
               console.log("Base image changed; all images will be rebuilt.");
               rebuildAll = true;
